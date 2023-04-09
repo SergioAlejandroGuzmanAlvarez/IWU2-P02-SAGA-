@@ -24,4 +24,8 @@ export class TaskService {
     this.tasks.push(task);
     return this.tasks;
   }
+  public uncompleteTask(pos: number) {
+    this.tasks.push(this.completedTask.splice(pos, 1)[0]);
+    return this.completedTask;
+  }
 }

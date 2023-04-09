@@ -59,24 +59,6 @@ export class Tab1Page {
     await alert.present();
   }
 
-  getColor(type: string): string {
-    let color = "";
-    switch (type) {
-      case "Abarrotes":
-        color = "primary";
-        break;
-      case "Limpieza":
-        color = "success";
-        break;
-      case "Mascotas":
-        color = "warning";
-        break;
-      default:
-        break;
-    }
-    return color;
-  }
-
   public completeTask(pos: number) {
     this.tasks = this.taskService.completeTask(pos);
     this.presentToast("Tarea compleda", "green");
