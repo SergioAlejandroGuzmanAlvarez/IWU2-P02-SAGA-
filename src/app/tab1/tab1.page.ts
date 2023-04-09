@@ -84,4 +84,32 @@ export class Tab1Page {
   ionViewDidEnter() {
     this.isContentLoaded = true;
   }
+  public async editTask(pos: number) {
+    const alert = await this.alertController.create({
+      header: 'Editar tarea',
+      inputs: [
+        {
+          name: 'task',
+          type: 'text',
+          value: this.tasks[pos],
+          placeholder: 'Nueva tarea'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel'
+        },
+        {
+          text: 'Guardar',
+          handler: (data) => {
+            this.taskService.updateTask(pos, data.task);
+          }
+        }
+      ]
+    });
+  
+    await alert.present();
+  }
+  
 }

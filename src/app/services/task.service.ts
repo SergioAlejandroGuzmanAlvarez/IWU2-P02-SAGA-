@@ -28,4 +28,8 @@ export class TaskService {
     this.tasks.push(this.completedTask.splice(pos, 1)[0]);
     return this.completedTask;
   }
+  public updateTask(pos:number, task:string){
+    this.tasks[pos] = task;
+    return this.tasks;
+  }
 }
